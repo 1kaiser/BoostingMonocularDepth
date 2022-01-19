@@ -119,7 +119,6 @@ def run(dataset, option):
                                                                        r_threshold_value, scale_threshold,
                                                                        whole_size_threshold)
 
-        print('\t wholeImage being processed in :', whole_image_optimal_size)
 
         # Generate the base estimate using the double estimation.
         whole_estimate = doubleestimate(img, option.net_receptive_field_size, whole_image_optimal_size,
@@ -149,7 +148,6 @@ def run(dataset, option):
         # small high-density regions of the image.
         global factor
         factor = max(min(1, 4 * patch_scale * whole_image_optimal_size / whole_size_threshold), 0.2)
-        print('Adjust factor is:', 1/factor)
 
         # Check if Local boosting is beneficial.
         if option.max_res < whole_image_optimal_size:
@@ -194,7 +192,6 @@ def run(dataset, option):
         base_size = option.net_receptive_field_size*2
         patchset = generatepatchs(img, base_size)
 
-        print('Target resolution: ', img.shape)
 
         # Computing a scale in case user prompted to generate the results as the same resolution of the input.
         # Notice that our method output resolution is independent of the input resolution and this parameter will only
@@ -202,7 +199,6 @@ def run(dataset, option):
         # as the input.
         if option.output_resolution == 1:
             mergein_scale = input_resolution[0] / img.shape[0]
-            print('Dynamicly change merged-in resolution; scale:', mergein_scale)
         else:
             mergein_scale = 1
 
@@ -212,7 +208,6 @@ def run(dataset, option):
         imageandpatchs.set_base_estimate(whole_estimate_resized.copy())
         imageandpatchs.set_updated_estimate(whole_estimate_resized.copy())
 
-        print('\t Resulted depthmap res will be :', whole_estimate_resized.shape[:2])
         print('patchs to process: '+str(len(imageandpatchs)))
 
         # Enumerate through all patches, generate their estimations and refining the base estimate.
@@ -225,7 +220,7 @@ def run(dataset, option):
             rect = patch['rect'] # patch size and location
             patch_id = patch['id'] # patch ID
             org_size = patch_whole_estimate_base.shape # the original size from the unscaled input
-            print('\t processing patch', patch_ind, '|', rect)
+            
 
             # We apply double estimation for patches. The high resolution value is fixed to twice the receptive
             # field size of the network for patches to accelerate the process.
