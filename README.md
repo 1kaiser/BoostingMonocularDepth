@@ -1,3 +1,22 @@
+Please fine updated repository >>> https://github.com/1kaiser/Gradient-based-depth-map-fusion 
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/1kaiser/Gradient-based-depth-map-fusion/blob/main/Depth_Map_LeRes.ipynb)
+## Multi-resolution Monocular Depth Map Fusion by Self-supervised Gradient-based Composition
+
+This repository contains code and models for the [paper](https://arxiv.org/pdf/2212.01538.pdf):
+
+> [1] Yaqiao Dai, Renjiao Yi, Chenyang Zhu, Hongjun He, Kai Xu,  Multi-resolution Monocular Depth Map Fusion by Self-supervised  Gradient-based Composition, AAAI 2023
+
+![](https://github.com/1kaiser/Gradient-based-depth-map-fusion/blob/main/figures/1.gif)
+
+### Changelog 
+
+* [November 2022] Initial release of code and models
+* [December 2022] updated to get full resolution Depth map output
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/1kaiser/BoostingMonocularDepth/blob/main/Boostmonoculardepth.ipynb)
+
+
 ### **(NEW!)** [LeRes][2] is now supported within our method.
 
 Here is a visualization of the improvement gained using [LeRes][2] instead of [MiDas][1].
